@@ -1,6 +1,10 @@
 #!/bin/bash
 
 id=9999
+vm_name="Template-debian"
+memory=4096
+cores=2
+
 
 # Check if wget is installed
 if ! command -v wget &> /dev/null; then
@@ -21,7 +25,7 @@ wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd
 virt-customize -a debian-12-generic-amd64.qcow2 --install qemu-guest-agent
 
 # Create the VM
-qm create $id --name Template-debian --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
+qm create $id --name $vm_name --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
 
 # Import the disk
 qm importdisk $id debian-12-generic-amd64.qcow2 local-lvm --format raw
@@ -33,7 +37,7 @@ qm disk resize $id scsi0 20G
 
 # Set VM options
 qm set $id --boot order=scsi0
-qm set $id --cpu host --cores 2 --memory 4096
+qm set $id --cpu host --cores $cores --memory $memory
 qm set $id --ide2 local:cloudinit
 qm set $id --agent enabled=1
 
