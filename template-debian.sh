@@ -24,7 +24,9 @@ virt-customize -a debian-12-generic-amd64.qcow2 --install qemu-guest-agent
 qm create $id --name Template-debian --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
 
 # Import the disk
-qm importdisk $id debian-12-generic-amd64.qcow2 local --format qcow2
+qm importdisk $id debian-12-generic-amd64.qcow2 local-lvm --format raw
+
+qm set $id --scsi0 local-lvm:vm-$id-disk-0
 
 # Resize the disk
 qm disk resize $id scsi0 20G
