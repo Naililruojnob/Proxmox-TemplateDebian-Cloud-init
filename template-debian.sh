@@ -21,7 +21,7 @@ wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd
 virt-customize -a debian-12-generic-amd64.qcow2 --install qemu-guest-agent
 
 # Create the VM
-qm create $id --name Template-debian --net0 virtio,bridge=vmbr1 --scsihw virtio-scsi-pci
+qm create $id --name Template-debian --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-pci
 
 # Import the disk
 qm importdisk $id debian-12-generic-amd64.qcow2 local --format qcow2
