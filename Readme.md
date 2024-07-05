@@ -1,6 +1,3 @@
-Voici un fichier README pour votre script, expliquant les différentes possibilités de configuration à travers les variables :
-
-```markdown
 # Proxmox Template Creation Script
 
 Ce script Bash automatise le processus de création d'un template Debian sur un serveur Proxmox. Il inclut la personnalisation de l'image Debian pour ajouter l'agent invité QEMU et la configuration de la VM selon des spécifications prédéfinies.
@@ -64,9 +61,3 @@ Enregistrez les modifications et exécutez le script.
 - Vérifiez que l'URL de l'image Debian est correcte et accessible depuis le serveur Proxmox.
 - Le script doit être exécuté avec les privilèges root pour effectuer les modifications système nécessaires.
 
-## License
-
-Ce script est distribué sous la licence MIT. Voir le fichier LICENSE pour plus de détails.
-```
-
-Ce README fournit une explication complète des variables de configuration, de l'utilisation du script et des différentes étapes impliquées dans le processus de création du template Proxmox. Vous pouvez l'ajuster davantage selon vos besoins spécifiques.
