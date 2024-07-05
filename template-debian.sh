@@ -21,14 +21,14 @@ vm_exists() {
 }
 
 # Check if a VM/template with the same ID exists, and delete it if it does
-if vm_exists; then
-    echo "A VM/template with ID $id already exists. Deleting it..."
-    qm stop $id 2>/dev/null
-    qm destroy $id
-    echo "Existing VM/template with ID $id has been deleted."
-else
-    echo "No existing VM/template with ID $id found."
-fi
+#if vm_exists; then
+#    echo "A VM/template with ID $id already exists. Deleting it..."
+#    qm stop $id 2>/dev/null
+#    qm destroy $id
+#    echo "Existing VM/template with ID $id has been deleted."
+#else
+#    echo "No existing VM/template with ID $id found."
+#fi
 
 # Check if wget is installed
 if ! command -v wget &> /dev/null; then
