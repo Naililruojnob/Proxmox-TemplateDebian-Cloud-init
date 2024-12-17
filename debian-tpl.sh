@@ -2,7 +2,7 @@
 
 # Variables
 id=9999
-vm_name="Template-debian"
+vm_name="debian-tpl"
 memory=4096
 cores=2
 disk_size="20G"
@@ -11,24 +11,9 @@ debian_image_name="debian-12-generic-amd64.qcow2"
 storage_pool="local-lvm"
 network_bridge="vmbr0"
 scsihw_type="virtio-scsi-pci"
-cloudinit_drive="local:cloudinit"
+cloudinit_drive="local-lvm:cloudinit"
 
 echo "Starting the script to create a Proxmox template with ID $id..."
-
-# Function to check if a VM/template with the given ID exists
-vm_exists() {
-    qm list | grep -w "^$id"
-}
-
-# Check if a VM/template with the same ID exists, and delete it if it does
-#if vm_exists; then
-#    echo "A VM/template with ID $id already exists. Deleting it..."
-#    qm stop $id 2>/dev/null
-#    qm destroy $id
-#    echo "Existing VM/template with ID $id has been deleted."
-#else
-#    echo "No existing VM/template with ID $id found."
-#fi
 
 # Check if wget is installed
 if ! command -v wget &> /dev/null; then
